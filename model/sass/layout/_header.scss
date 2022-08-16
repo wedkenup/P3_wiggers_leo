@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+
+
+
+/* Début Header */
+header {
+    @extend %grid-center;
+    @include grid-template-set ($header);
+    padding: 1em;
+
+    & h1 {
+        @include grid-pos-set (1, auto, 1, auto);
+        font-family: 'Shrikhand', cursive;
+    }
+
+    & .btn__retourHome {
+        @include grid-pos-set (1, auto, 1, auto);
+        justify-self: start;
+    }
+}

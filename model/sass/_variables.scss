@@ -1,0 +1,44 @@
+//Couleurs principales
+$violet-primaire: #9356DC;
+$rose-secondaire: #FF79DA;
+$aqua-tertiaire: #99E2D0;
+
+//Couleur secondaires
+$vert-clair: #99e2d0;
+$gris-sombre: #353535;
+$gris-clair: #e2e2e2;
+
+//Textes
+$txt-fond-clair: #000000;
+$txt-fond-sombre: #ffffff;
+$txt-fond-vert: #008766;
+
+//LOADER
+$bg-color: #fff;
+$basic-dark-color: #212121;
+$border-width: 4px;
+$basic-spinner-dimensions: 125px;
+$main-spinner-dimensions: $basic-spinner-dimensions - $border-width * 2;
+$small-spinner-dimensions: $main-spinner-dimensions * 0.7;
+
+
+//Soulignement titre
+$border-length-var: 3rem;
+
+//Sections
+$header: "header";
+$localisation: "localisation";
+$presentation: "presentation";
+$commentCaMarche: "commentCaMarche";
+$lesRestaurants: "lesRestaurants";
+$menuDuResto: "menuDuResto";
+$footer: "footer";
+
+//Positionnement
+$grid-columns-header: 1;
+$grid-columns-localisation: 1;
+$grid-columns-presentation: 1;
+$grid-columns-commentCaMarche: 3;
+$grid-columns-lesRestaurants: 4;
+$grid-columns-menuDuResto: 1;
+$grid-columns-footer: 3;

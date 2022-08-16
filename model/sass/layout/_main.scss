@@ -1,0 +1,391 @@
+/* Début Main */
+main {
+    font-family: 'Roboto', sans-serif;
+
+    /* LOADER */
+
+    .spinner {
+        position: relative;
+        width: $basic-spinner-dimensions;
+        height: $basic-spinner-dimensions;
+
+        &:before,
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            border-width: 4px;
+            border-style: solid;
+            border-radius: 50%;
+        }
+    }
+
+    /* spinner-1 styles */
+    .spinner.spinner-1 {
+
+        @keyframes rotate-animation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes anti-rotate-animation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        &:before {
+            width: $main-spinner-dimensions;
+            height: $main-spinner-dimensions;
+            border-bottom-color: $basic-dark-color;
+            border-right-color: $basic-dark-color;
+            border-top-color: rgba($basic-dark-color, 0);
+            border-left-color: rgba($basic-dark-color, 0);
+            top: 0px;
+            left: 0px;
+            animation: rotate-animation 1s linear 0s infinite;
+        }
+
+        &:after {
+            width: $small-spinner-dimensions;
+            height: $small-spinner-dimensions;
+            border-bottom-color: $basic-dark-color;
+            border-right-color: $basic-dark-color;
+            border-top-color: rgba($basic-dark-color, 0);
+            border-left-color: rgba($basic-dark-color, 0);
+            top: ($main-spinner-dimensions - $small-spinner-dimensions) / 2;
+            left: ($main-spinner-dimensions - $small-spinner-dimensions) / 2;
+            animation: anti-rotate-animation 0.85s linear 0s infinite;
+        }
+    }
+
+    /* Debut section localisation */
+    & .localisation {
+        @extend %grid-center;
+        @include grid-template-set ($localisation);
+        padding: 1em;
+        background: #eaeaea;
+        background: linear-gradient(180deg,
+                rgba(173, 173, 173, .35) 0%,
+                rgba(234, 234, 234, .75) 15%,
+                rgba(234, 234, 234, 1) 100%);
+
+        & i {
+            padding: 0 0.5em 0 0;
+        }
+    }
+
+    /* Fin section localisation */
+
+    /* Debut section presentation */
+    & .presentation {
+        @extend %grid-center;
+        @include grid-template-set ($presentation);
+        padding: 2em 0 3em;
+        background: #f6f6f6;
+        text-align: center;
+
+        & h2 {
+            padding: 0 5em;
+        }
+
+        & p {
+            padding: 1em 5em 2em;
+        }
+    }
+
+    /* Fin section presentation */
+
+    /* Debut section commentCaMarche */
+    & .commentCaMarche {
+        @extend %grid-center;
+        @include grid-template-set(1);
+        padding: 3em 1em;
+
+        & h2 {
+            @include grid-pos-set (1, auto, 1, 2);
+            justify-self: start;
+        }
+
+        & ol {
+            @include grid-pos-set (2, auto, 1, 4);
+            display: grid;
+            @include grid-template-set ($commentCaMarche);
+            grid-gap: 2em;
+            margin: 1em 1em 0;
+            justify-self: normal;
+            counter-reset: michel;
+
+            @media (max-width: 740px) {
+                @include grid-template-set (2);
+            }
+
+            @media (max-width: 480px) {
+                @include grid-template-set (1);
+            }
+
+            & li::before {
+                counter-increment: michel;
+                content: counter(michel);
+                position: relative;
+                left: -1.9em;
+                padding: 0.3em 0.6em;
+                border-radius: 70%;
+                background-color: $violet-primaire;
+                color: $txt-fond-sombre;
+            }
+
+            & li:hover {
+                background-color: lighten($violet-primaire, 35%);
+
+                & i {
+                    color: $violet-primaire;
+                }
+            }
+
+            & p {
+                display: inline-block;
+                position: relative;
+                left: -0.7em;
+            }
+
+            & i {
+                padding: 0 1em 0 0;
+            }
+        }
+    }
+
+    /* Fin section commentCaMarche */
+
+
+
+    & .lesRestaurants {
+        @extend %grid-center;
+        @include grid-template-set(1);
+        padding: 3em 1em;
+        background: #f6f6f6;
+
+        & h2 {
+            @include grid-pos-set(1, auto, 1, auto);
+            justify-self: start;
+
+        }
+
+        & ul {
+            @include grid-pos-set(2, auto, 1, auto);
+            display: grid;
+            @include grid-template-set($lesRestaurants);
+            grid-gap: 2em;
+            justify-self: normal;
+            margin: 1em 0;
+
+            & li {
+                display: inline-block;
+                width: 100%;
+
+                & a {
+                    display: block;
+                    position: relative;
+                    padding: 0 0 0.7rem 0;
+                    color: $txt-fond-clair;
+                    border-radius: 1.5em;
+                    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+
+                    & .sticker {
+                        position: absolute;
+                        right: 1em;
+                        top: 1em;
+                        padding: 0.4em 0.6em;
+                        color: $txt-fond-vert;
+                        background: $vert-clair;
+                        border-radius: 0.2em;
+                    }
+
+                    & img {
+                        padding: 0 0 0.5rem 0;
+                        width: 100%;
+                        height: 12.5em;
+                        object-fit: cover;
+                        border-radius: 1.5em 1.5em 0 0;
+                    }
+
+                    & h3,
+                    p {
+                        padding: 0 1rem 0.5rem;
+                    }
+
+                    & .btn__like {
+                        position: absolute;
+                        bottom: 2.5rem;
+                        right: 1.5rem;
+                        font-size: 1.5em;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+    }
+
+    /* Début section menuDuResto */
+
+    & .menuDuResto {
+        @extend %grid-center;
+        @include grid-template-set($menuDuResto);
+        padding: 0 0 3em;
+        justify-items: normal;
+        background: #f6f6f6;
+
+        &__cover {
+            width: 100%;
+            height: 20em;
+            object-fit: cover;
+            margin: 0 0 -5em 0;
+        }
+
+        &__carte {
+            padding: 2em 1em 0;
+            background: #f6f6f6;
+            border-radius: 3em 3em 0 0;
+
+            & h2 {
+                @include grid-pos-set (1, auto, 1, 4);
+                justify-self: start;
+                margin: 0 0 1em;
+                font-family: 'Shrikhand', cursive;
+                font-size: 2em;
+
+                & button {
+                    margin: 0 0 0 2rem;
+                    font-size: 1em;
+                    position: relative;
+                }
+            }
+
+            & h3 {
+                @include grid-pos-set (2, auto, 1, 4);
+                justify-self: start;
+                text-transform: uppercase;
+                font-weight: normal;
+                @extend %border-length;
+            }
+
+            & ul {
+                @include grid-pos-set (3, auto, 1, 4);
+                display: grid;
+                @include grid-template-set (3);
+                grid-gap: 1.5em;
+                margin: 1em 0 2.5em;
+                justify-self: normal;
+
+                & .list-item {
+                    position: relative;
+                    padding: 1em;
+                    cursor: pointer;
+                    overflow: hidden;
+                    font-size: 1.05em;
+
+                    & h4 {
+                        margin: 0 0 0.5rem 0;
+                        font-size: 1.1em;
+                    }
+
+                    & p {
+                        font-size: 1em;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 85%;
+                        overflow: hidden;
+                        transition: all 0.5s;
+                    }
+
+                    & strong {
+                        position: absolute;
+                        right: 2rem;
+                        bottom: 1rem;
+                        transition: all 0.5s;
+                        font-weight: 600;
+                    }
+
+                    & span {
+                        position: absolute;
+                        top: 0;
+                        right: -5rem;
+                        width: 5rem;
+                        height: 100%;
+                        font-size: 1.5em;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: $txt-fond-sombre;
+                        background: $aqua-tertiaire;
+                        transition: all 0.5s;
+
+                        & .fa-check-circle {
+                            transform: rotate(-240deg);
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+
+                & .list-item {
+                    animation: appearlist 1000ms forwards;
+                    opacity: 0;
+
+                    @for $i from 1 to 10 {
+                        &--#{$i} {
+                            animation-delay: 200ms * $i;
+                        }
+                    }
+
+                    @keyframes appearlist {
+                        0% {
+                            transform: translateY(2em);
+                        }
+
+                        100% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+
+                    }
+                }
+
+                & .list-item:hover {
+                    & p {
+                        width: 60%;
+                    }
+
+                    & strong {
+                        right: 6.5rem;
+                    }
+
+                    & span {
+                        right: 0;
+
+                        & i {
+                            transform: rotate(0deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        & a {
+            justify-content: center;
+            display: flex;
+            justify-self: center;
+            width: 10%;
+        }
+    }
+
+}

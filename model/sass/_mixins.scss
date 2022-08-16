@@ -1,0 +1,39 @@
+@mixin grid-template-set($section) {
+
+    @if ($section=="header") {
+        $section: $grid-columns-header;
+    }
+
+    @else if ($section=="localisation") {
+        $section: $grid-columns-localisation;
+    }
+
+    @else if ($section=="presentation") {
+        $section: $grid-columns-presentation;
+    }
+
+    @else if ($section=="commentCaMarche") {
+        $section: $grid-columns-commentCaMarche;
+    }
+
+    @else if ($section=="lesRestaurants") {
+        $section: $grid-columns-lesRestaurants;
+    }
+
+    @else if ($section=="menuDuResto") {
+        $section: $grid-columns-menuDuResto;
+    }
+
+    @else if ($section=="footer") {
+        $section: $grid-columns-footer;
+    }
+
+    grid-template-columns: repeat($section, 1fr);
+}
+
+
+//Grid position setting
+@mixin grid-pos-set ($row-start, $row-end, $col-start, $col-end) {
+    grid-row: $row-start unquote("/") $row-end;
+    grid-column: $col-start unquote("/") $col-end;
+}

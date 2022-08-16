@@ -1,0 +1,42 @@
+/* Début Footer */
+footer {
+    @extend %grid-center;
+    @include grid-template-set ($footer);
+    padding: 1em;
+    color: $txt-fond-sombre;
+    background: #353535;
+    font-family: 'Roboto', sans-serif;
+
+    & h2 {
+        @include grid-pos-set (1, auto, 1, auto);
+        margin: 0 0 1.5rem 0;
+        font-family: 'Shrikhand', cursive;
+        font-size: 1.4em;
+        font-weight: normal;
+        justify-self: start;
+    }
+
+    & ul {
+        @include grid-pos-set (2, auto, 1, 4);
+        justify-self: start;
+
+        & li {
+            margin: 0 0 0.5rem 0;
+        }
+    }
+
+    & a {
+        color: $txt-fond-sombre;
+
+        & .fa-utensils {
+            padding: 0 1rem 0 0;
+        }
+
+        & .fa-hands-helping {
+            padding: 0 0.55rem 0 0;
+        }
+    }
+
+}
+
+/* Fin Footer */

@@ -1,0 +1,15 @@
+//Basic grid setting
+%grid-center {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+}
+
+%border-length {
+    &::after {
+        border-bottom: 3px #99E2D0 solid;
+        content: '';
+        display: block;
+        width: $border-length-var;
+    }
+}

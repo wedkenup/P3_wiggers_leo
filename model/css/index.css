@@ -1,0 +1,467 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+footer, main .menuDuResto, main .lesRestaurants, main .commentCaMarche, main .presentation, main .localisation, header {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+main .menuDuResto__carte h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 3rem;
+}
+
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+  padding: 1em 1.5em;
+  color: #ffffff;
+  transition: 250ms;
+}
+.btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #9356DC 0%, #FF79DA 200%);
+}
+.btn--radius {
+  border-radius: 2em;
+}
+.btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+.btn__like .heart-away,
+button .heart-away {
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.btn__like .heart-hover,
+button .heart-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 0.5s;
+  background-color: black;
+  background-image: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.btn__like:hover .heart-away,
+button:hover .heart-away {
+  opacity: 0;
+  transform: scale(0);
+}
+.btn__like:hover .heart-hover,
+button:hover .heart-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Début Header */
+header {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
+}
+header h1 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  font-family: "Shrikhand", cursive;
+}
+header .btn__retourHome {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  justify-self: start;
+}
+
+/* Début Main */
+main {
+  font-family: "Roboto", sans-serif;
+  /* LOADER */
+  /* spinner-1 styles */
+  /* Debut section localisation */
+  /* Fin section localisation */
+  /* Debut section presentation */
+  /* Fin section presentation */
+  /* Debut section commentCaMarche */
+  /* Fin section commentCaMarche */
+  /* Début section menuDuResto */
+}
+main .spinner {
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+main .spinner:before, main .spinner:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-width: 4px;
+  border-style: solid;
+  border-radius: 50%;
+}
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes anti-rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+main .spinner.spinner-1:before {
+  width: 117px;
+  height: 117px;
+  border-bottom-color: #212121;
+  border-right-color: #212121;
+  border-top-color: rgba(33, 33, 33, 0);
+  border-left-color: rgba(33, 33, 33, 0);
+  top: 0px;
+  left: 0px;
+  animation: rotate-animation 1s linear 0s infinite;
+}
+main .spinner.spinner-1:after {
+  width: 81.9px;
+  height: 81.9px;
+  border-bottom-color: #212121;
+  border-right-color: #212121;
+  border-top-color: rgba(33, 33, 33, 0);
+  border-left-color: rgba(33, 33, 33, 0);
+  top: 17.55px;
+  left: 17.55px;
+  animation: anti-rotate-animation 0.85s linear 0s infinite;
+}
+main .localisation {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
+  background: #eaeaea;
+  background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, rgb(234, 234, 234) 100%);
+}
+main .localisation i {
+  padding: 0 0.5em 0 0;
+}
+main .presentation {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 2em 0 3em;
+  background: #f6f6f6;
+  text-align: center;
+}
+main .presentation h2 {
+  padding: 0 5em;
+}
+main .presentation p {
+  padding: 1em 5em 2em;
+}
+main .commentCaMarche {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
+}
+main .commentCaMarche h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+main .commentCaMarche ol {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  margin: 1em 1em 0;
+  justify-self: normal;
+  counter-reset: michel;
+}
+@media (max-width: 740px) {
+  main .commentCaMarche ol {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  main .commentCaMarche ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+main .commentCaMarche ol li::before {
+  counter-increment: michel;
+  content: counter(michel);
+  position: relative;
+  left: -1.9em;
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  background-color: #9356DC;
+  color: #ffffff;
+}
+main .commentCaMarche ol li:hover {
+  background-color: #f2eafb;
+}
+main .commentCaMarche ol li:hover i {
+  color: #9356DC;
+}
+main .commentCaMarche ol p {
+  display: inline-block;
+  position: relative;
+  left: -0.7em;
+}
+main .commentCaMarche ol i {
+  padding: 0 1em 0 0;
+}
+main .lesRestaurants {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
+  background: #f6f6f6;
+}
+main .lesRestaurants h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  justify-self: start;
+}
+main .lesRestaurants ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+  justify-self: normal;
+  margin: 1em 0;
+}
+main .lesRestaurants ul li {
+  display: inline-block;
+  width: 100%;
+}
+main .lesRestaurants ul li a {
+  display: block;
+  position: relative;
+  padding: 0 0 0.7rem 0;
+  color: #000000;
+  border-radius: 1.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+main .lesRestaurants ul li a .sticker {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  padding: 0.4em 0.6em;
+  color: #008766;
+  background: #99e2d0;
+  border-radius: 0.2em;
+}
+main .lesRestaurants ul li a img {
+  padding: 0 0 0.5rem 0;
+  width: 100%;
+  height: 12.5em;
+  object-fit: cover;
+  border-radius: 1.5em 1.5em 0 0;
+}
+main .lesRestaurants ul li a h3,
+main .lesRestaurants ul li a p {
+  padding: 0 1rem 0.5rem;
+}
+main .lesRestaurants ul li a .btn__like {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 1.5rem;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+main .menuDuResto {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  justify-items: normal;
+  background: #f6f6f6;
+}
+main .menuDuResto__cover {
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+  margin: 0 0 -5em 0;
+}
+main .menuDuResto__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
+}
+main .menuDuResto__carte h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
+}
+main .menuDuResto__carte h2 button {
+  margin: 0 0 0 2rem;
+  font-size: 1em;
+  position: relative;
+}
+main .menuDuResto__carte h3 {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+main .menuDuResto__carte ul {
+  grid-row: 3 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
+  justify-self: normal;
+}
+main .menuDuResto__carte ul .list-item {
+  position: relative;
+  padding: 1em;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 1.05em;
+}
+main .menuDuResto__carte ul .list-item h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1em;
+}
+main .menuDuResto__carte ul .list-item p {
+  font-size: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 85%;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item strong {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  transition: all 0.5s;
+  font-weight: 600;
+}
+main .menuDuResto__carte ul .list-item span {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #99E2D0;
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item span .fa-check-circle {
+  transform: rotate(-240deg);
+  transition: all 0.5s;
+}
+main .menuDuResto__carte ul .list-item {
+  animation: appearlist 1000ms forwards;
+  opacity: 0;
+}
+main .menuDuResto__carte ul .list-item--1 {
+  animation-delay: 200ms;
+}
+main .menuDuResto__carte ul .list-item--2 {
+  animation-delay: 400ms;
+}
+main .menuDuResto__carte ul .list-item--3 {
+  animation-delay: 600ms;
+}
+main .menuDuResto__carte ul .list-item--4 {
+  animation-delay: 800ms;
+}
+main .menuDuResto__carte ul .list-item--5 {
+  animation-delay: 1000ms;
+}
+main .menuDuResto__carte ul .list-item--6 {
+  animation-delay: 1200ms;
+}
+main .menuDuResto__carte ul .list-item--7 {
+  animation-delay: 1400ms;
+}
+main .menuDuResto__carte ul .list-item--8 {
+  animation-delay: 1600ms;
+}
+main .menuDuResto__carte ul .list-item--9 {
+  animation-delay: 1800ms;
+}
+@keyframes appearlist {
+  0% {
+    transform: translateY(2em);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+main .menuDuResto__carte ul .list-item:hover p {
+  width: 60%;
+}
+main .menuDuResto__carte ul .list-item:hover strong {
+  right: 6.5rem;
+}
+main .menuDuResto__carte ul .list-item:hover span {
+  right: 0;
+}
+main .menuDuResto__carte ul .list-item:hover span i {
+  transform: rotate(0deg);
+}
+main .menuDuResto a {
+  justify-content: center;
+  display: flex;
+  justify-self: center;
+  width: 10%;
+}
+
+/* Début Footer */
+footer {
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em;
+  color: #ffffff;
+  background: #353535;
+  font-family: "Roboto", sans-serif;
+}
+footer h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  margin: 0 0 1.5rem 0;
+  font-family: "Shrikhand", cursive;
+  font-size: 1.4em;
+  font-weight: normal;
+  justify-self: start;
+}
+footer ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+}
+footer ul li {
+  margin: 0 0 0.5rem 0;
+}
+footer a {
+  color: #ffffff;
+}
+footer a .fa-utensils {
+  padding: 0 1rem 0 0;
+}
+footer a .fa-hands-helping {
+  padding: 0 0.55rem 0 0;
+}
+
+/* Fin Footer */
