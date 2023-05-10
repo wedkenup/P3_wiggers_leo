@@ -61,12 +61,12 @@ main {
             justify-self: normal;
             counter-reset: michel;
 
-            @media (max-width: 740px) {
-                @include grid-template-set (2);
+            @media (max-width: 1024px) {
+                @include grid-template-set(2);
             }
 
-            @media (max-width: 480px) {
-                @include grid-template-set (1);
+            @media (max-width: 768px) {
+                @include grid-template-set(1);
             }
 
             & li::before {
@@ -123,6 +123,16 @@ main {
             grid-gap: 2em;
             justify-self: normal;
             margin: 1em 0;
+
+
+            @media (max-width: 1024px) {
+                @include grid-template-set(2);
+            }
+
+            @media (max-width: 768px) {
+                @include grid-template-set(1);
+            }
+
 
             & li {
                 display: inline-block;
@@ -199,6 +209,8 @@ main {
                 margin: 0 0 1em;
                 font-family: 'Shrikhand', cursive;
                 font-size: 2em;
+                display: flex;
+                justify-content: space-around;
 
                 & button {
                     margin: 0 0 0 2rem;
@@ -223,6 +235,15 @@ main {
                 margin: 1em 0 2.5em;
                 justify-self: normal;
 
+
+                @media (max-width: 1024px) {
+                    @include grid-template-set(2);
+                }
+
+                @media (max-width: 768px) {
+                    @include grid-template-set(1);
+                }
+
                 & .list-item {
                     position: relative;
                     padding: 1em;
@@ -233,6 +254,11 @@ main {
                     & h4 {
                         margin: 0 0 0.5rem 0;
                         font-size: 1.1em;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        width: 85%;
+                        overflow: hidden;
+                        transition: all 0.5s;
                     }
 
                     & p {
@@ -297,6 +323,11 @@ main {
                 }
 
                 & .list-item:hover {
+
+                    & h4 {
+                        width: 60%;
+                    }
+
                     & p {
                         width: 60%;
                     }
@@ -320,7 +351,8 @@ main {
             justify-content: center;
             display: flex;
             justify-self: center;
-            width: 10%;
+            width: 20%;
+
         }
     }
 
